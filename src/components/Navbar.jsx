@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { FaHeart, FaShoppingCart, FaMoon, FaBars } from "react-icons/fa";
+import SearchBar from "./SearchBar";
+import { useContext } from 'react';
+import { ThemeContext } from "../context/ThemeContext";
 
 function Navbar(){
+
+    const {darkMode, setDarkMode} = useContext(ThemeContext);
         return(
             <nav className="sticky top-0 z-50 bg-white shadow-md">
 
@@ -20,10 +25,7 @@ function Navbar(){
                         {/* 2. Search */}
 
                         <div className="hidden md:block w-full max-w-md mx-8">
-                            <input 
-                                type="text"
-                                placeholder="Search products..."
-                                className="w-full rounded-lg border px-4 py-2 outline-none focus:ring-2 focus:ring-green-500" />
+                            <SearchBar />
                         </div>
 
                         {/* 3. Right Side */}
@@ -31,7 +33,11 @@ function Navbar(){
                         <div className="flex items-center gap-5">
                         
                             {/* 4. Moon */}
-                                <button>
+                                <button
+                                    onClick={() =>
+                                        setDarkMode(!darkMode)
+                                    }
+                                >
                                     <FaMoon size={20} />
                                 </button>
 
@@ -67,10 +73,7 @@ function Navbar(){
 
                         {/* 8. Mobile Search */}
                     <div className="pb-4 md:hidden">
-                        <input 
-                            type="text" 
-                            placeholder="Search products..."
-                            className="w-full rounded-lg border px-4 py-2"/>
+                        <SearchBar />
                     </div>
                 </div>
             </nav>
