@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { ThemeContext } from "../context/ThemeContext";
 
 function ProductCard( {product} ){
+
+    const { darkMode } = useContext(ThemeContext);
+
     return(
         <Link
             to={`/product/${product.id}`}
-            className="block rounded-xl border p-4 shadow-sm transition hover:shadow-lg hover:scale-101"
+            className={`block rounded-xl border p-4 shadow-sm transition hover:shadow-lg hover:scale-101
+                ${darkMode ? "bg-gray-800 text-white" 
+                            :"bg-white text-black"
+                }`}
         >
 
         <img 

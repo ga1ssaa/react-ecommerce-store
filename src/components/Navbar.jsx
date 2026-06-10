@@ -8,7 +8,9 @@ function Navbar(){
 
     const {darkMode, setDarkMode} = useContext(ThemeContext);
         return(
-            <nav className="sticky top-0 z-50 bg-white shadow-md">
+            <nav className={`sticky top-0 z-50 shadow-md
+                            ${darkMode? "bg-gray-800 text-white" : "bg-white text-black"}
+                            `}>
 
                 <div className="container mx-auto px-4">
 
