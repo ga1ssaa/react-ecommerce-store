@@ -3,10 +3,13 @@ import { FaHeart, FaShoppingCart, FaMoon, FaBars } from "react-icons/fa";
 import SearchBar from "./SearchBar";
 import { useContext } from 'react';
 import { ThemeContext } from "../context/ThemeContext";
+import { CartContext } from "../context/CartContext";
 
 function Navbar(){
 
     const {darkMode, setDarkMode} = useContext(ThemeContext);
+    const { cartItems } = useContext(CartContext);
+
         return(
             <nav className={`sticky top-0 z-50 shadow-md
                             ${darkMode? "bg-gray-800 text-white" : "bg-white text-black"}
@@ -61,7 +64,7 @@ function Navbar(){
                                 className="relative"
                             >
                                 <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-xs text-white">
-                                    0
+                                    {cartItems.length}
                                 </span>
                                 <FaShoppingCart size={22} />
                             </Link>
