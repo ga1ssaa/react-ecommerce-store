@@ -16,7 +16,7 @@ function ProductCard({product}){
         >
 
         <img 
-            src={product.image} 
+            src={product.thumbnail} 
             alt={product.title} 
             className="mx-auto h-48 object-contain"
         />

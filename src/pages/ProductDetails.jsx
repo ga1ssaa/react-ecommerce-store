@@ -30,7 +30,7 @@ function ProductDetails(){
 
             <div className="rounded-xl bg-white p-8 shadow">
                 <img 
-                    src={product.image} 
+                    src={product.thumbnail} 
                     alt={product.title}
                     className="h-96 w-full object-contain"
                 />
@@ -50,7 +50,7 @@ function ProductDetails(){
                     {product.description}
                 </p>
                 <p className="font-bold mt-4">
-                    ⭐️ {product.rating.rate} ({product.rating.count} reviews)
+                    ⭐ {product.rating}/5
                 </p>
 
                 <div className="font-serif mt-8 flex gap-4">

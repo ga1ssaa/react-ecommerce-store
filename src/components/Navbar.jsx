@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaHeart, FaShoppingCart, FaMoon, FaBars } from "react-icons/fa";
+import { FaHome, FaHeart, FaShoppingCart, FaMoon, FaBars } from "react-icons/fa";
 import SearchBar from "./SearchBar";
 import { useContext } from 'react';
 import { ThemeContext } from "../context/ThemeContext";
@@ -22,9 +22,12 @@ function Navbar(){
                         {/* 1. Logo */}
                         <Link
                             to="/"
-                            className="font-serif text-2xl font-bold text-green-600"
+                            className="flex items-center gap-2 text-green-600"
                         >
-                            ShopHub
+                            <FaHome size={24} />
+                            <span className="font-serif text-2xl font-bold">
+                                ShopHub
+                            </span>
                         </Link>
 
                         {/* 2. Search */}
