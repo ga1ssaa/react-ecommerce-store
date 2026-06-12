@@ -4,12 +4,13 @@ import SearchBar from "./SearchBar";
 import { useContext } from 'react';
 import { ThemeContext } from "../context/ThemeContext";
 import { CartContext } from "../context/CartContext";
+import { FavoritesContext } from "../context/FavoritesContext";
 
 function Navbar(){
 
     const {darkMode, setDarkMode} = useContext(ThemeContext);
     const { cartItems } = useContext(CartContext);
-
+    const { favorites } = useContext(FavoritesContext);
         return(
             <nav className={`sticky top-0 z-50 shadow-md
                             ${darkMode? "bg-gray-800 text-white" : "bg-white text-black"}
@@ -57,7 +58,7 @@ function Navbar(){
                             >
                                 <FaHeart size={22} />
                                 <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-xs text-white">
-                                    0
+                                    {favorites.length}
                                 </span>
                             </Link>
 

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from 'react';
 import { getProduct } from "../services/api";
 import { CartContext } from "../context/CartContext";
+import { FavoritesContext } from "../context/FavoritesContext";
 
 function ProductDetails(){
 
@@ -10,6 +11,8 @@ function ProductDetails(){
     const { id } = useParams();
 
     const { addToCart } = useContext(CartContext);
+
+    const { addToFavorites } = useContext(FavoritesContext);
 
     useEffect(() => {
         async function fetchProduct() {
@@ -61,6 +64,7 @@ function ProductDetails(){
                         Add to Cart
                     </button>
                     <button
+                        onClick={() => addToFavorites(product)}
                         className="rounded-lg border border-green-500 px-6 py-3 text-green-500 cursor-pointer hover:bg-green-50 transition hover:scale-101"
                     >
                         Add to Favorites

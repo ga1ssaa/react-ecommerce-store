@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { SearchContext } from '../context/SearchContext';
 import CategoryFilter from '../components/CategoryFilter';
 import SortSelect from '../components/SortSelect';
+import Pagination from '../components/Pagination';
 
 function Home(){
 
@@ -14,6 +15,7 @@ function Home(){
     const [selectedCategory, setSelectedCategory] = useState("all");
     const [sortOption, setSortOption] = useState("default");
     const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect( () => {
 
@@ -46,7 +48,13 @@ function Home(){
             );
         });
 
-    const sortedProducts = [...filteredProducts];
+    const productsPerPage = 12;
+    const lastIndex = currentPage * productsPerPage;
+    const firstIndex = lastIndex - productsPerPage;
+    const currentProducts = filteredProducts.slice(firstIndex, lastIndex);
+    const totalPages = Math.ceil(filteredProducts.length/productsPerPage);
+
+    const sortedProducts = [...currentProducts];
 
     if(sortOption === "low-to-high"){
         sortedProducts.sort(
@@ -118,6 +126,10 @@ function Home(){
                         />
                     ))}
                 </div>
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    setCurrentPage={setCurrentPage} />
             </div>
         </section>
     );

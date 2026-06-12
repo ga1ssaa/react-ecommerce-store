@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 function Cart(){
 
@@ -14,6 +15,12 @@ function Cart(){
                 <p className="mt-3 text-gray-500">
                     Add some products and come back 
                 </p>
+                <Link
+                    to="/"
+                    className="font-serif font-semibold mt-6 inline-block rounded-lg bg-green-500 px-6 py-3 text-white cursor-pointer transition hover:scale-102 hover:bg-green-600"
+                >
+                    Continue Shopping
+                </Link>
             </div>
         )
     }
@@ -38,7 +45,7 @@ function Cart(){
                     >
 
                        <img
-                            src={product.image}
+                            src={product.thumbnail}
                             alt={product.title}
                             className="h-20 w-20 object-contain"
                        />

@@ -12,10 +12,10 @@ function Footer(){
         `}>
             <div className="container mx-auto px-4 py-6"> 
                 <div className="flex flex-col items-center justify-between gap-3 md:flex-row">
-                    <h2 className="font-semibold">
+                    <h2 className="font-serif font-semibold">
                         ShopHub
                     </h2>
-                    <p className={`text-sm text-gray-500
+                    <p className={`font-serif text-sm text-gray-500
                         ${darkMode ? "text-gray-400"
                                     :"text-gray-500"
                     }`}>

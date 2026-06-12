@@ -1,9 +1,10 @@
-import { useState, createContext } from 'react';
+import { createContext } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 export const SearchContext = createContext();
 
 function SearchProvider({ children }){
-    const [searchTerm, setSearchTerm] = useState("");
+    const [searchTerm, setSearchTerm] = useLocalStorage("searchTerm","");
 
     return(
         <SearchContext.Provider
