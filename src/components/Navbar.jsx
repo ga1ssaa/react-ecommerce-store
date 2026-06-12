@@ -42,6 +42,7 @@ function Navbar(){
                                     onClick={() =>
                                         setDarkMode(!darkMode)
                                     }
+                                    className="cursor-pointer"
                                 >
                                     <FaMoon size={20} />
                                 </button>

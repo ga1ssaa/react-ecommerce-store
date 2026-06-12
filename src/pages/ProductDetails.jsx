@@ -56,12 +56,12 @@ function ProductDetails(){
                 <div className="font-serif mt-8 flex gap-4">
                     <button
                         onClick={() => addToCart(product)}
-                        className="rounded-lg bg-green-500 px-6 py-3 text-white cursor-pointer hover:bg-green-600"
+                        className="rounded-lg bg-green-500 px-6 py-3 text-white cursor-pointer hover:bg-green-600 transition hover:scale-101"
                     >
                         Add to Cart
                     </button>
                     <button
-                        className="rounded-lg border border-green-500 px-6 py-3 text-green-500 cursor-pointer hover:bg-green-50"
+                        className="rounded-lg border border-green-500 px-6 py-3 text-green-500 cursor-pointer hover:bg-green-50 transition hover:scale-101"
                     >
                         Add to Favorites
                     </button>

@@ -3,15 +3,25 @@ import { CartContext } from "../context/CartContext";
 
 function Cart(){
 
-    const { cartItems, removeFromCart } = useContext(CartContext);
+    const { cartItems, increaseQty, decreaseQty, removeFromCart, clearCart } = useContext(CartContext);
 
     if(cartItems.length === 0){
         return(
-            <h1 className="font-serif flex justify-center my-40 text-3xl font-bold">
-                Your cart is empty 🤷🏻‍♂️
-            </h1>
+            <div className="font-serif my-50 text-center">
+                <h1 className="text-4xl font-bold">
+                    Your cart is empty 🛒
+                </h1>
+                <p className="mt-3 text-gray-500">
+                    Add some products and come back 
+                </p>
+            </div>
         )
     }
+
+    const totalPrice = cartItems.reduce(
+        (sum, item) => sum + item.price * item.quantity, 
+        0
+    );
     return(
         <section>
 
@@ -36,20 +46,62 @@ function Cart(){
                             <h2 className="font-serif font-bold">
                                 {product.title}
                             </h2>
+
+                            <p className="font-serif font-semibold text-gray-500">
+                                Quantity: {product.quantity}
+                            </p>
+
                             <p className="font-bold text-green-500">
-                                ${product.price}
+                                ${product.price.toFixed(2)}
                             </p>
                        </div>
 
+                    <div className="mt-2 flex items-center gap-3">
+                        <button 
+                            onClick = {() => decreaseQty(product.id)}
+                            className="rounded border px-3 py-1 cursor-pointer transition hover:scale-101"
+                        >
+                            -
+                        </button>
+
+                        <span className="font-serif font-semibold">
+                            {product.quantity}
+                        </span>
+
+                        <button
+                            onClick = {() => increaseQty(product.id)}
+                            className="rounded border px-3 py-1 cursor-pointer transition hover:scale-101"
+                        >
+                            +
+                        </button>
+                    </div>
+
                     <button
                         onClick = {() => removeFromCart(product.id)}
-                        className="font-serif mt-2 rounded-lg bg-red-500 px-4 py-2 text-white cursor-pointer hover:bg-red-600"
+                        className="font-serif mt-2 rounded-lg bg-red-500 px-4 py-2 text-white cursor-pointer hover:bg-red-600 transition hover:scale-101"
                     >
                         Remove
                     </button>
 
                     </div>
+
                 ))}
+
+                <div className="mt-6 flex justify-end">
+                    <div className="rounded-xl border p-6">
+
+                        <h2 className="text-2xl font-bold">
+                            Total: ${totalPrice.toFixed(2)}
+                        </h2>
+
+                    <button
+                        onClick = {() => clearCart()}
+                        className="font-serif mt-4 w-full font-bold rounded-lg border cursor-pointer px-4 py-2 transition hover:scale-101"
+                    >
+                        Clear Cart
+                    </button>
+                    </div>
+                </div>
 
 
             </div>
