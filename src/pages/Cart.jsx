@@ -109,8 +109,7 @@ function Cart(){
                     <button
                         onClick = {() => {
                             clearCart();
-                            toast.error("Cart Emptied 🧹")
-
+                            toast.error("Cart Emptied 🧹");
                         }}
                         className="font-serif mt-4 w-full font-bold rounded-lg border cursor-pointer px-4 py-2 transition hover:scale-101"
                     >
@@ -118,6 +117,12 @@ function Cart(){
                     </button>
                     </div>
                 </div>
+                <Link
+                    to="/checkout"
+                    className="font-serif block rounded-lg bg-green-500 py-3 text-center font-bold text-white hover:bg-green-600"
+                >
+                    Proceed to Checkout
+                </Link>
 
             </div>
         </section>

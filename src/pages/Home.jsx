@@ -122,19 +122,6 @@ function Home(){
                     Products: {filteredProducts.length}
                 </h2>
 
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-                    {sortedProducts.map((product) => (
-                        <ProductCard 
-                            key={product.id}
-                            product={product}
-                        />
-                    ))}
-                </div>
-            <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                setCurrentPage={setCurrentPage} />
-
             {filteredProducts.length === 0 ? (
                 <div className="mt-12 text-center">
                     <h3 className="font-serif text-4xl font-bold">
@@ -145,7 +132,8 @@ function Home(){
                         Try another search term or category.
                     </p>
                 </div>
-            ) : (
+            ):(
+                <>
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
                     {sortedProducts.map((product) => (
                         <ProductCard
@@ -154,6 +142,11 @@ function Home(){
                         />
                     ))}
                 </div>
+                    <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    setCurrentPage={setCurrentPage} />
+                </>
             )}
             </div>
         </section>

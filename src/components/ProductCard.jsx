@@ -33,15 +33,15 @@ function ProductCard({product}){
             className="mx-auto h-48 object-contain"
         />
 
-        <h3 className="font-serif mt-4 line-clamp-2 font-semibold">
+        <h3 className="mt-4 min-h-[60px] font-serif text-xl font-bold">
             {product.title}
         </h3>
 
-        <p className="mt-2 text-xl font-bold text-green-600">
+        <p className="text-2xl font-bold text-green-500">
             ${product.price.toFixed(2)}
         </p>
 
-        <div className="mt-4 flex gap-4">
+        <div className="mt-4 flex gap-3">
             <button
                 onClick = {(e) => {
 

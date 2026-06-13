@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Favorites from "./pages/Favorites";
+import Checkout from "./pages/Checkout";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: "favorites",
                 element: <Favorites/>,
+            },
+            {
+                path: "checkout",
+                element: <Checkout/>
             },
         ],
     },
