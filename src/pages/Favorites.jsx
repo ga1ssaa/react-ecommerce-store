@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { FavoritesContext } from "../context/FavoritesContext";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Favorites(){
 
@@ -64,7 +65,10 @@ function Favorites(){
                             </Link>
 
                             <button
-                                onClick = {() => removeFromFavorites(product.id)}
+                                onClick = {() => {
+                                    removeFromFavorites(product.id);
+                                    toast.error("Removed from Favorites💔");
+                                }}
                                 className="font-serif rounded-lg bg-red-500 px-4 py-2 text-white cursor-pointer transition hover:scale-101 hover:bg-red-600"
                             >
                                 Remove

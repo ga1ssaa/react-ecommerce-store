@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Cart(){
 
@@ -84,7 +85,11 @@ function Cart(){
                     </div>
 
                     <button
-                        onClick = {() => removeFromCart(product.id)}
+                        onClick = {() => { 
+                            removeFromCart(product.id);
+                            toast.error("Item Removed 🗑️")
+                        }}
+
                         className="font-serif mt-2 rounded-lg bg-red-500 px-4 py-2 text-white cursor-pointer hover:bg-red-600 transition hover:scale-101"
                     >
                         Remove
@@ -102,14 +107,17 @@ function Cart(){
                         </h2>
 
                     <button
-                        onClick = {() => clearCart()}
+                        onClick = {() => {
+                            clearCart();
+                            toast.error("Cart Emptied 🧹")
+
+                        }}
                         className="font-serif mt-4 w-full font-bold rounded-lg border cursor-pointer px-4 py-2 transition hover:scale-101"
                     >
                         Clear Cart
                     </button>
                     </div>
                 </div>
-
 
             </div>
         </section>

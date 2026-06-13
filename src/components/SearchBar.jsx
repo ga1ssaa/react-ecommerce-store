@@ -15,9 +15,9 @@ function SearchBar(){
                             :"bg-white text-black"
                 }`}
             value={searchTerm}
-            onChange={(e) => 
-                setSearchTerm(e.target.value)
-        }/>   
+            onChange={(e) => {
+                setSearchTerm(e.target.value);
+        }}/>   
     );
 }
 export default SearchBar;

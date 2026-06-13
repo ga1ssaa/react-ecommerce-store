@@ -35,6 +35,10 @@ function Home(){
 
     },[]);
 
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [searchTerm, selectedCategory]);
+
     const filteredProducts = products.filter(
         (product) => {
             const matchesSearch = 
@@ -115,7 +119,7 @@ function Home(){
 
             <div className="mt-8">
                 <h2 className="font-serif mb-6 text-3xl font-bold">
-                    Products: {products.length}
+                    Products: {filteredProducts.length}
                 </h2>
 
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -126,10 +130,31 @@ function Home(){
                         />
                     ))}
                 </div>
-                <Pagination
-                    currentPage={currentPage}
-                    totalPages={totalPages}
-                    setCurrentPage={setCurrentPage} />
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                setCurrentPage={setCurrentPage} />
+
+            {filteredProducts.length === 0 ? (
+                <div className="mt-12 text-center">
+                    <h3 className="font-serif text-4xl font-bold">
+                        No products found 😔
+                    </h3>
+
+                    <p className="font-serif mt-2 text-gray-500">
+                        Try another search term or category.
+                    </p>
+                </div>
+            ) : (
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+                    {sortedProducts.map((product) => (
+                        <ProductCard
+                            key={product.id}
+                            product={product}
+                        />
+                    ))}
+                </div>
+            )}
             </div>
         </section>
     );
