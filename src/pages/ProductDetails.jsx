@@ -12,8 +12,8 @@ function ProductDetails(){
 
     const [product, setProduct] = useState(null);
     const [allProducts, setAllProducts] = useState([]);
-
     const [selectedImage, setSelectedImage] = useState("");
+    const [error, setError] = useState(false);
 
     const { id } = useParams();
 
@@ -30,17 +30,38 @@ function ProductDetails(){
 
     useEffect(() => {
         async function fetchProduct() {
-            const data = await getProduct(id);
-            const allData = await getProducts();
+            try{
+                const data = await getProduct(id);
+                const allData = await getProducts();
 
-            setProduct(data);
-            setAllProducts(allData);
-
-            setSelectedImage(data.thumbnail);
+                setProduct(data);
+                setAllProducts(allData);
+                setSelectedImage(data.thumbnail);
+            } 
+            catch{
+                setError(true);
+            }
         }
 
         fetchProduct();
     }, [id]);
+
+    if (error) {
+        return (
+            <div className="text-center mt-20">
+                <h1 className="font-serif text-5xl font-bold">
+                    Product not found 😔
+                </h1>
+
+                <Link
+                    to="/"
+                    className="font-serif mt-6 inline-block rounded-lg bg-green-500 px-6 py-3 text-white"
+                >
+                    Back to Home
+                </Link>
+            </div>
+        );
+    }
 
     if (!product) {
         return (
@@ -107,9 +128,12 @@ function ProductDetails(){
 
                     <div className="font-serif mt-8 flex flex-col gap-4">
 
-                        <Link to="/cart">
+                        <Link to="/checkout">
                             <button
-                                onClick={() => addToCart(product)}
+                                onClick={() => {
+                                    if(!isInCart){
+                                        addToCart(product)}
+                                    }}
                                 className="w-full font-bold rounded-lg bg-green-500 px-6 py-3 text-white cursor-pointer hover:bg-green-600 transition hover:scale-101"
                                 >
                                 Buy Now
@@ -161,19 +185,21 @@ function ProductDetails(){
 
             </section>
 
-            <section className="mx-auto mt-16 max-w-5xl">
-                <h2 className="font-serif mb-6 text-3xl font-bold">
-                    Related Products
-                </h2>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-                    {relatedProducts.map((item) => (
-                        <ProductCard 
-                            key={item.id}
-                            product={item}
-                        />
-                    ))}
-                </div>
-            </section>
+            {relatedProducts.length > 0 && (
+                <section className="mx-auto mt-16 max-w-5xl">
+                    <h2 className="font-serif mb-6 text-3xl font-bold">
+                        Related Products
+                    </h2>
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+                        {relatedProducts.map((item) => (
+                            <ProductCard 
+                                key={item.id}
+                                product={item}
+                            />
+                        ))}
+                    </div>
+                </section>
+            )}
         </>
     );
 }

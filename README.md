@@ -1,16 +1,85 @@
-# React + Vite
+🛍️ ShopHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern e-commerce web application built with React and Tailwind CSS.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Browse products from API
+* Search products by name
+* Filter products by category
+* Sort products by price
+* Product details page
+* Product image gallery
+* Related products section
+* Shopping cart with quantity controls
+* Favorites system
+* Dark mode support
+* Checkout page with country selection
+* Order success page
+* Responsive mobile design
+* Local storage persistence
+* 404 Not Found page
 
-## React Compiler
+🛠️ Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React
+* React Router DOM
+* Context API
+* Tailwind CSS
+* React Toastify
+* React Icons
+* React Select
+* Local Storage API
+* DummyJSON API
 
-## Expanding the ESLint configuration
+📸 Main Functionality
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Home Page
+
+* Search products
+* Category filtering
+* Sorting
+* Pagination
+
+Product Details
+
+* Multiple product images
+* Add to cart
+* Add to favorites
+* Related products
+
+Cart
+
+* Increase/decrease quantity
+* Remove items
+* Clear cart
+* Total price calculation
+
+Checkout
+
+* Shipping form
+* Country selection
+* Order summary
+
+Order Success
+
+* Confirmation page after purchase
+
+💾 Data Persistence
+
+Cart items, favorites, and dark mode preferences are stored using Local Storage.
+
+📱 Responsive Design
+
+The application is fully responsive and optimized for desktop and mobile devices.
+
+▶️ Installation
+
+git clone <repository-url>
+cd ecommerce-store
+npm install
+npm run dev
+
+👨‍💻 Author
+
+Developed by Aldiyar.

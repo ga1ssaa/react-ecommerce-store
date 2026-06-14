@@ -42,7 +42,7 @@ function Cart(){
 
                     <div
                         key={product.id}
-                        className="flex items-center gap-4 rounded-xl border p-4"
+                        className="flex flex-col gap-4 rounded-xl border p-4 md:flex-row md:items-center"
                     >
 
                        <img
@@ -100,9 +100,9 @@ function Cart(){
                 ))}
 
                 <div className="mt-6 flex justify-end">
-                    <div className="rounded-3xl border p-8 w-[300px]">
+                    <div className="rounded-3xl border p-5 w-full max-w-[280px]">
 
-                        <h2 className="text-4xl font-bold">
+                        <h2 className="text-3xl font-bold">
                             Total: ${totalPrice.toFixed(2)}
                         </h2>
 

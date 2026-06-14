@@ -47,9 +47,12 @@ function Checkout() {
         e.preventDefault();
 
         clearCart();
+        if(!formData.country){
+            toast.error("Please select a country 🌏");
+            return;
+        }
 
         toast.success("Order placed successfully! 🎉");
-
         navigate("/order-success");
     }
 
@@ -69,7 +72,7 @@ function Checkout() {
             </div>
         );
     }
-    
+
     return (
         <section className="mx-auto max-w-5xl">
             <h1 className="font-serif mb-8 text-4xl font-bold">
@@ -93,6 +96,7 @@ function Checkout() {
                             name="fullName"
                             placeholder="Full Name"
                             required
+                            minLength={2}
                             onChange={handleChange}
                             className={`w-full rounded-lg border py-4 pl-3
                                 ${darkMode
@@ -164,6 +168,7 @@ function Checkout() {
                             name="city"
                             placeholder="City"
                             required
+                            minLength={2}
                             onChange={handleChange}
                             className={`w-full rounded-lg border py-4 pl-3
                                 ${darkMode
@@ -176,6 +181,7 @@ function Checkout() {
                             name="address"
                             placeholder="Address"
                             required
+                            minLength={5}
                             onChange={handleChange}
                             className={`w-full rounded-lg border py-4 pl-3
                                 ${darkMode
@@ -191,10 +197,9 @@ function Checkout() {
                         </button>
                         
                         <Link
-                            to="/"
+                            to="/cart"
                         >
                         <button
-                            type="submit"
                             className="w-full rounded-lg bg-red-500 py-3 font-bold text-white cursor-pointer hover:bg-red-600"
                         >
                             Decline

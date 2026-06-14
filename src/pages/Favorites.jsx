@@ -67,7 +67,7 @@ function Favorites(){
                             <button
                                 onClick = {() => {
                                     removeFromFavorites(product.id);
-                                    toast.error("Removed from Favorites💔");
+                                    toast.error("Removed from Favorites 💔");
                                 }}
                                 className="font-serif rounded-lg bg-red-500 px-4 py-2 text-white cursor-pointer transition hover:scale-101 hover:bg-red-600"
                             >
