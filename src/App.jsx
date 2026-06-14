@@ -7,6 +7,8 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Favorites from "./pages/Favorites";
 import Checkout from "./pages/Checkout";
+import OrderSuccess from "./pages/OrderSuccess.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
                 path: "checkout",
                 element: <Checkout/>
             },
+            {
+                path: "/order-success",
+                element: <OrderSuccess/>
+            },
+            {
+                path: "*",
+                element: <NotFound/>
+            }
         ],
     },
 ]);

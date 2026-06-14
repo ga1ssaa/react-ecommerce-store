@@ -7,6 +7,7 @@ import Select from "react-select";
 import { useMemo } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Checkout() {
 
@@ -47,8 +48,28 @@ function Checkout() {
 
         clearCart();
 
+        toast.success("Order placed successfully! 🎉");
+
         navigate("/order-success");
     }
+
+    if (cartItems.length === 0) {
+        return (
+            <div className="text-center">
+                <h2 className="font-serif text-4xl font-bold">
+                    Your cart is empty 🛒
+                </h2>
+
+                <Link
+                    to="/"
+                    className="mt-6 inline-block rounded-lg bg-green-500 px-6 py-3 text-white"
+                >
+                    Go Shopping
+                </Link>
+            </div>
+        );
+    }
+    
     return (
         <section className="mx-auto max-w-5xl">
             <h1 className="font-serif mb-8 text-4xl font-bold">

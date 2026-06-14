@@ -100,9 +100,9 @@ function Cart(){
                 ))}
 
                 <div className="mt-6 flex justify-end">
-                    <div className="rounded-xl border p-6">
+                    <div className="rounded-3xl border p-8 w-[300px]">
 
-                        <h2 className="text-2xl font-bold">
+                        <h2 className="text-4xl font-bold">
                             Total: ${totalPrice.toFixed(2)}
                         </h2>
 
