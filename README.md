@@ -76,22 +76,22 @@ The application is fully responsive and optimized for desktop and mobile devices
 ## 📸 Screenshots
 
 ### Home Page
-![Home](docs/screenshots/home-page.png)
+![Home](docs/screenshots/home_page.png)
 
 ### Product Details
-![Product Details](docs/screenshots/product-details.png)
+![Product Details](docs/screenshots/product_details.png)
 
 ### Cart
-![Cart](docs/screenshots/cart-page.png)
+![Cart](docs/screenshots/cart_page.png)
 
 ### Favorites
-![Favorites](docs/screenshots/favorites-page.png)
+![Favorites](docs/screenshots/favorites_page.png)
 
 ### Checkout
-![Checkout](docs/screenshots/checkout-page.png)
+![Checkout](docs/screenshots/checkout_page.png)
 
 ### Dark Mode
-![Dark Mode](docs/screenshots/dark-mode.png)
+![Dark Mode](docs/screenshots/dark_mode.png)
 
 ▶️ Installation
 
