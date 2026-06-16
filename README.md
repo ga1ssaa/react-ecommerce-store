@@ -73,13 +73,40 @@ Cart items, favorites, and dark mode preferences are stored using Local Storage.
 
 The application is fully responsive and optimized for desktop and mobile devices.
 
+## 📸 Screenshots
+
+### Home Page
+![Home](docs/screenshots/home-page.png)
+
+### Product Details
+![Product Details](docs/screenshots/product-details.png)
+
+### Cart
+![Cart](docs/screenshots/cart-page.png)
+
+### Favorites
+![Favorites](docs/screenshots/favorites-page.png)
+
+### Checkout
+![Checkout](docs/screenshots/checkout-page.png)
+
+### Dark Mode
+![Dark Mode](docs/screenshots/dark-mode.png)
+
 ▶️ Installation
 
-git clone <repository-url>
-cd ecommerce-store
+git clone https://github.com/ga1ssaa/react-ecommerce-store.git
+cd react-ecommerce-store
 npm install
 npm run dev
 
+🌐 Live Demo
+
+https://react-ecommerce-store-lake.vercel.app/
+
 👨‍💻 Author
 
-Developed by Aldiyar.
+Developed by Aldiyar Gaisa
+
+* GitHub: https://github.com/ga1ssaa
+* LinkedIn: https://www.linkedin.com/in/aldiyar-gaisa-0b2a78414/
